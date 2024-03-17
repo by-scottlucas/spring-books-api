@@ -1,35 +1,47 @@
 package br.com.spring.mvc.model.dto;
 
-import org.hibernate.validator.constraints.Length;
-
+import br.com.spring.mvc.model.Livro;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
 public class LivroDTO {
 
     @NotBlank
-    @Length(min = 10)
+    @NotEmpty
     private String titulo;
 
     @NotBlank
-    @Length(min = 10)
+    @NotEmpty
     private String autor;
 
     @NotBlank
-    @Length(min = 10)
+    @NotEmpty
     private String editora;
 
     @NotBlank
-    @Length(min = 10)
+    @NotEmpty
     private String descricao;
 
     @NotBlank
-    @Length(min = 10)
+    @NotNull
     private String genero;
 
-    @NotBlank
-    @Length(min = 4)
+    @NotNull
     private int lancamento;
+
+    public Livro toEntity() {
+        Livro livro = new Livro();
+        livro.setTitulo(getTitulo());
+        livro.setAutor(getAutor());
+        livro.setEditora(getEditora());
+        livro.setDescricao(getDescricao());
+        livro.setGenero(getGenero());
+        livro.setLancamento(getLancamento());
+
+        return livro;
+    }
 
 }
