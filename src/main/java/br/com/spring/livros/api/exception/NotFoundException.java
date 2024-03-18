@@ -1,4 +1,4 @@
-package br.com.spring.mvc.exception;
+package br.com.spring.livros.api.exception;
 
 public class NotFoundException extends RuntimeException {
 

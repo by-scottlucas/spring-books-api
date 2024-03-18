@@ -1,4 +1,4 @@
-package br.com.spring.mvc.model;
+package br.com.spring.livros.api.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

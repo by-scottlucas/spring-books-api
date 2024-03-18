@@ -1,14 +1,14 @@
-package br.com.spring.mvc.service;
+package br.com.spring.livros.api.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.spring.mvc.exception.NotFoundException;
-import br.com.spring.mvc.model.Livro;
-import br.com.spring.mvc.model.dto.LivroDTO;
-import br.com.spring.mvc.repository.LivroRepository;
+import br.com.spring.livros.api.exception.NotFoundException;
+import br.com.spring.livros.api.model.Livro;
+import br.com.spring.livros.api.model.dto.LivroDTO;
+import br.com.spring.livros.api.repository.LivroRepository;
 
 @Service
 public class LivroService {

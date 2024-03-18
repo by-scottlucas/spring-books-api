@@ -1,4 +1,4 @@
-package br.com.spring.mvc.controller;
+package br.com.spring.livros.api.controller;
 
 import java.util.List;
 
@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.spring.mvc.model.Livro;
-import br.com.spring.mvc.model.dto.LivroDTO;
-import br.com.spring.mvc.service.LivroService;
+import br.com.spring.livros.api.service.LivroService;
+import br.com.spring.livros.api.model.Livro;
+import br.com.spring.livros.api.model.dto.LivroDTO;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;

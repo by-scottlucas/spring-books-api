@@ -1,6 +1,6 @@
-package br.com.spring.mvc.model.dto;
+package br.com.spring.livros.api.model.dto;
 
-import br.com.spring.mvc.model.Livro;
+import br.com.spring.livros.api.model.Livro;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
