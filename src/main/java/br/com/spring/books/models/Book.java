@@ -1,4 +1,4 @@
-package br.com.spring.livros.api.model;
+package br.com.spring.books.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,8 +12,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Livro {
-
+public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,30 +20,29 @@ public class Livro {
     @Column()
     @NotBlank
     @NotEmpty
-    private String titulo;
+    private String title;
 
     @Column()
     @NotBlank
     @NotEmpty
-    private String autor;
+    private String author;
 
     @Column()
     @NotBlank
     @NotEmpty
-    private String editora;
+    private String publisher;
 
     @Column()
     @NotBlank
     @NotEmpty
-    private String descricao;
+    private String description;
 
     @Column()
     @NotBlank
     @NotEmpty
-    private String genero;
+    private String genrer;
 
     @Column()
     @NotNull
-    private int lancamento;
-
+    private int releaseDate;
 }

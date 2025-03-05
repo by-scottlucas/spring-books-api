@@ -1,10 +1,10 @@
-package br.com.spring.mvc;
+package br.com.spring.books;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MvcApplicationTests {
+class BooksApplicationTests {
 
 	@Test
 	void contextLoads() {

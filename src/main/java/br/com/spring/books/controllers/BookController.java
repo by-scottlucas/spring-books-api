@@ -1,9 +1,8 @@
-package br.com.spring.livros.api.controller;
+package br.com.spring.books.controllers;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
+import br.com.spring.books.exceptions.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,49 +11,55 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.spring.livros.api.service.LivroService;
-import br.com.spring.livros.api.model.Livro;
-import br.com.spring.livros.api.model.dto.LivroDTO;
+import br.com.spring.books.models.Book;
+import br.com.spring.books.models.DTO.BookDTO;
+import br.com.spring.books.services.BookService;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController()
-@RequestMapping("/api/v1/livros")
-public class LivroController {
+@RequestMapping("/api/v1/books")
+public class BookController {
 
-    @Autowired
-    LivroService livroService;
+    private final BookService bookService;
+
+    public BookController(BookService bookService){
+        this.bookService = bookService;
+    }
 
     @GetMapping()
     @ResponseStatus(code = HttpStatus.OK)
-    public List<Livro> listarLivros() {
-        return livroService.list();
+    public List<Book> listBooks() {
+        return bookService.list();
     }
 
     @PostMapping()
     @ResponseStatus(code = HttpStatus.CREATED)
-    public Livro cadastrarLivro(@RequestBody LivroDTO livro) {
-        return livroService.create(livro);
+    public Book registerBook(@RequestBody BookDTO book) {
+        return bookService.create(book);
     }
 
     @GetMapping("/{id}")
     @ResponseStatus(code = HttpStatus.OK)
-    public Livro listarLivro(@PathVariable() Long id) throws NotFoundException {
-        return livroService.read(id);
+    public Book getBook(@PathVariable() Long id) throws NotFoundException {
+        return bookService.read(id);
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(code = HttpStatus.CREATED)
-    public Livro atualizarLivro(@PathVariable() Long id, @RequestBody() LivroDTO livro) throws NotFoundException {
-        return livroService.update(id, livro);
+    public Book updateBook(
+        @PathVariable() Long id,
+        @RequestBody() BookDTO book
+    ) throws NotFoundException {
+        return bookService.update(id, book);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    public void excluirLivro(@PathVariable() Long id) {
-        livroService.delete(id);
+    public void deleteBook(@PathVariable() Long id) {
+        bookService.delete(id);
     }
 
 }
