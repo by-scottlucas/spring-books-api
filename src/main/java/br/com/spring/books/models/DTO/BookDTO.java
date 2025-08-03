@@ -39,7 +39,6 @@ public class BookDTO {
         book.setDescription(getDescription());
         book.setGenrer(getGenrer());
         book.setReleaseDate(getReleaseDate());
-
         return book;
     }
 }
