@@ -2,34 +2,29 @@ package br.com.spring.books.models.DTO;
 
 import br.com.spring.books.models.Book;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
 public class BookDTO {
-    @NotBlank
-    @NotEmpty
+    
+    @NotBlank(message = "O título é obrigatório.")
     private String title;
 
-    @NotBlank
-    @NotEmpty
+    @NotBlank(message = "O autor é obrigatório.")
     private String author;
 
-    @NotBlank
-    @NotEmpty
+    @NotBlank(message = "A editora é obrigatória.")
     private String publisher;
 
-    @NotBlank
-    @NotEmpty
+    @NotBlank(message = "A descrição é obrigatória.")
     private String description;
 
-    @NotBlank
-    @NotNull
+    @NotBlank(message = "O gênero é obrigatório.")
     private String genrer;
 
-    @NotNull
-    private int releaseDate;
+    @NotNull(message = "O ano de lançamento é obrigatório.")
+    private Integer releaseDate;
 
     public Book toEntity() {
         Book book = new Book();

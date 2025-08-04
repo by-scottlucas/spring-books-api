@@ -44,15 +44,15 @@ public class BookService {
 
     public Book update(Long id, BookDTO data) throws NotFoundException {
         return this.bookRepository.findById(id)
-                .map(livro -> {
-                    livro.setTitle(data.getTitle());
-                    livro.setAuthor(data.getAuthor());
-                    livro.setPublisher(data.getPublisher());
-                    livro.setDescription(data.getDescription());
-                    livro.setGenrer(data.getGenrer());
-                    livro.setReleaseDate(data.getReleaseDate());
+                .map(book -> {
+                    book.setTitle(data.getTitle());
+                    book.setAuthor(data.getAuthor());
+                    book.setPublisher(data.getPublisher());
+                    book.setDescription(data.getDescription());
+                    book.setGenrer(data.getGenrer());
+                    book.setReleaseDate(data.getReleaseDate());
 
-                    return this.bookRepository.save(livro);
+                    return this.bookRepository.save(book);
                 })
                 .orElseThrow(() -> new NotFoundException(id));
     }
