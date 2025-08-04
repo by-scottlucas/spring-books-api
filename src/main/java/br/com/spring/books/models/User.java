@@ -11,12 +11,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
 @Entity
-public class Book {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,33 +23,19 @@ public class Book {
     @Column()
     @NotBlank
     @NotEmpty
-    private String title;
+    private String name;
 
     @Column()
     @NotBlank
     @NotEmpty
-    private String author;
+    private String email;
 
     @Column()
     @NotBlank
     @NotEmpty
-    private String publisher;
+    private String password;
 
-    @Column()
-    @NotBlank
-    @NotEmpty
-    private String description;
-
-    @Column()
-    @NotBlank
-    @NotEmpty
-    private String genrer;
-
-    @Column()
-    @NotNull
-    private int releaseDate;
-
-    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<UserBook> readers;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<UserBook> booksRead;
 
 }
