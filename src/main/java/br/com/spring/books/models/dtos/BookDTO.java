@@ -1,4 +1,4 @@
-package br.com.spring.books.models.DTO;
+package br.com.spring.books.models.dtos;
 
 import br.com.spring.books.models.Book;
 import jakarta.validation.constraints.NotBlank;

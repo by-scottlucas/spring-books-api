@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import br.com.spring.books.exceptions.AlreadyExistsException;
 import br.com.spring.books.exceptions.NotFoundException;
 import br.com.spring.books.models.User;
-import br.com.spring.books.models.DTO.UserDTO;
+import br.com.spring.books.models.dtos.UserDTO;
 import br.com.spring.books.repositories.UserRepository;
 
 @Service

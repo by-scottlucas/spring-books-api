@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.spring.books.models.Book;
-import br.com.spring.books.models.DTO.BookDTO;
+import br.com.spring.books.models.dtos.BookDTO;
 import br.com.spring.books.services.BookService;
 import jakarta.validation.Valid;
 
