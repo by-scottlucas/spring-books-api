@@ -3,6 +3,7 @@ package br.com.spring.books.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import br.com.spring.books.exceptions.AlreadyExistsException;
@@ -14,9 +15,13 @@ import br.com.spring.books.repositories.UserRepository;
 @Service
 public class UserService {
     private final UserRepository userRepository;
+    private final BCryptPasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(
+            UserRepository userRepository,
+            BCryptPasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public List<User> list() {
@@ -31,6 +36,10 @@ public class UserService {
         }
 
         User newUser = data.toEntity();
+
+        String encryptedPassword = passwordEncoder.encode(data.getPassword());
+        newUser.setPassword(encryptedPassword);
+
         return this.userRepository.save(newUser);
     }
 
@@ -46,7 +55,8 @@ public class UserService {
             }
 
             if (data.getPassword() != null) {
-                user.setPassword(data.getPassword());
+                String encryptedPassword = passwordEncoder.encode(data.getPassword());
+                user.setPassword(encryptedPassword);
             }
 
             return this.userRepository.save(user);
