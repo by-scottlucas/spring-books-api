@@ -40,7 +40,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public User getUser(@PathVariable Long id) throws NotFoundException {
+    public User getUserDatails(@PathVariable Long id) throws NotFoundException {
         return this.userService.read(id);
     }
 

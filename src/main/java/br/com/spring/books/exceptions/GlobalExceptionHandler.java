@@ -47,4 +47,10 @@ public class GlobalExceptionHandler {
         return "Tipo do argumento é inválido";
     }
 
+    @ExceptionHandler(AlreadyExistsException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public String handleAlreadyExistsException(AlreadyExistsException ex) {
+        return ex.getMessage();
+    }
+
 }

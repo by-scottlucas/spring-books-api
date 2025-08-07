@@ -45,7 +45,7 @@ public class UserService {
 
     public User read(Long id) throws NotFoundException {
         return this.userRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException(id));
+                .orElseThrow(() -> new NotFoundException("Usuario não encontrado."));
     }
 
     public User update(Long id, UserDTO data) throws NotFoundException {
@@ -60,12 +60,12 @@ public class UserService {
             }
 
             return this.userRepository.save(user);
-        }).orElseThrow(() -> new NotFoundException(id));
+        }).orElseThrow(() -> new NotFoundException("Usuario não encontrado."));
     }
 
     public void delete(Long id) throws NotFoundException {
         if (!this.userRepository.existsById(id)) {
-            throw new NotFoundException(id);
+            throw new NotFoundException("Usuario não encontrado.");
         }
         this.userRepository.deleteById(id);
     }
