@@ -39,12 +39,12 @@ public class UserController {
         return this.userService.create(newUserData);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{userId}")
     public User getUserDatails(@PathVariable Long id) throws NotFoundException {
         return this.userService.read(id);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{userId}")
     @ResponseStatus(HttpStatus.OK)
     public User updateUser(
             @PathVariable Long id,
@@ -52,7 +52,7 @@ public class UserController {
         return this.userService.update(id, updateUserData);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{userId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteUser(@PathVariable Long id) {
         userService.delete(id);
